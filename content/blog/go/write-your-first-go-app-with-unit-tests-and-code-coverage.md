@@ -1,5 +1,5 @@
 ---
-title: "Write Your First Go App With Unit Tests and Code Coverage"
+title: "Write your first GoLang app with unit tests and code coverage"
 date: 2018-02-07T01:48:54+02:00
 ---
 

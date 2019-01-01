@@ -5,15 +5,13 @@ title = "Ahmed Ashraf"
 theme = "cactus"
 # Enter your tracking code to enable Google Analytics
 googleAnalytics = "UA-93950970-1"
-# Disable comments by leaving disqusShortname empty
-disqusShortname = "ahmedash95-blog.disqus.com"
 # Publisher Directory
 publishDir = "public"
 
 [params]
 	name = "Ahmed Ashraf"
-	description = "Fullstack Developer @SpeakolAds"
-	bio = "FullStack Developer"
+	description = "Backend Engineer @GetYourGuide"
+	bio = "Backend Engineer"
 	# Enter optionally your twitter account
 	twitter = "ahmedash95"
 	enableRSS = false
@@ -25,6 +23,13 @@ publishDir = "public"
 
 	# The variables below are optionally too and can be used to
 	# translate or customize each string of the theme.
+	twitterCardImage = "avatar"
+
+	showLatestPosts = true
+	enableShare = true
+	enableGoogleAnalytics = true
+	enableDisqus = true
+	disqusShortname = "ahmedash95-blog.disqus.com"
 
 	# Navigation links
 	home = ""
@@ -33,7 +38,7 @@ publishDir = "public"
 	olderPosts = ""
 	newerPosts = ""
 	readMore = ""
-	copyright = "© Copyright 2018 Ahmed Ashraf"
+	copyright = "© Copyright 2019 Ahmed Ashraf"
 	# Sharing options and author information in posts
 	aboutAuthor = ""
 	tweet = ""
@@ -45,7 +50,7 @@ publishDir = "public"
 	# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
 	iconFont = "mono-social"
     # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
-    socialIconStyle = "circle"
+    socialIconStyle = "rounded"
 
 # Add additional social link entries underneath
 [social]
