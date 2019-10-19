@@ -2,31 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Ahmed Ashraf</title>
-    <link>https://ahmedash95.github.io/blog/</link>
+    <link>https://ahmedash.com/blog/</link>
     <description>Recent content in Blogs on Ahmed Ashraf</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Dec 2018 23:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 16 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ahmedash95.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ahmedash.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Twitter @ShareAsPic app with Go &amp; Chromedp</title>
+      <link>https://ahmedash.com/blog/article/golang-chromedp-twitter-app/</link>
+      <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahmedash.com/blog/article/golang-chromedp-twitter-app/</guid>
+      <description>العادي ان كل فتره بلاقي تويته عجباني ليها علاقه بشغلي اني بصورها و انزلها ع الفيسبوك عندي او اي جروب انا شايف ان التويته ممكن تكون مفيده فيه. ف استخدمت بعض الادوات المتاحه اللي ساعدتني في اقل من ٢٠ ساعه اني اخلص التطبيق بالشكل اللي انا شايفه مناسب للغرض اللي انا عاوزه او بما معناه MVP و مش تطبيق scalable. ف حابب اني اشارك انا عملتها ازاي واتمني الموضوع يكون مفيد ليك.</description>
+    </item>
+    
+    <item>
       <title>My 2018 farewell</title>
-      <link>https://ahmedash95.github.io/blog/year-review/2018/</link>
+      <link>https://ahmedash.com/blog/year-review/2018/</link>
       <pubDate>Mon, 31 Dec 2018 23:00:00 +0200</pubDate>
       
-      <guid>https://ahmedash95.github.io/blog/year-review/2018/</guid>
-      <description>I don’t know how to start, but I didn’t have the intent to write my farewell, since a lot of people I follow published their farewell, I decided to write one to encourage me to do better things next year.
+      <guid>https://ahmedash.com/blog/year-review/2018/</guid>
+      <description>I don’t know how to start, but I didn’t have the intent to write my farewell, since a lot of people I follow published their farewell, I decided to write one to encourage myself to do better things next year.
 Personal life:  Engaged at 16th Feb. Graduated. Married at 17th August. Moved to Berlin, Germany.  Work: I didn&amp;rsquo;t have a plan to achieve for 2018, so things happened in a random way.</description>
     </item>
     
     <item>
       <title>GoLang API rate limit</title>
-      <link>https://ahmedash95.github.io/blog/go/golang-mux-ratelimit/</link>
+      <link>https://ahmedash.com/blog/go/golang-mux-ratelimit/</link>
       <pubDate>Tue, 13 Feb 2018 12:49:33 +0200</pubDate>
       
-      <guid>https://ahmedash95.github.io/blog/go/golang-mux-ratelimit/</guid>
+      <guid>https://ahmedash.com/blog/go/golang-mux-ratelimit/</guid>
       <description>A few days ago I published my first go package GoLang Rate Limit.
 the purpose of this package is to prevent DDos attack and control the rate of traffic sent or received on the network. In this article I will describe how to implement it with gorilla/mux.
 So let&amp;rsquo;s start with writing a simple API package main import ( &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;github.com/gorilla/mux&amp;quot; ) func main() { // Initialize Router router := mux.</description>
@@ -34,10 +43,10 @@ So let&amp;rsquo;s start with writing a simple API package main import ( &amp;qu
     
     <item>
       <title>Write your first GoLang app with unit tests and code coverage</title>
-      <link>https://ahmedash95.github.io/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/</link>
+      <link>https://ahmedash.com/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/</link>
       <pubDate>Wed, 07 Feb 2018 01:48:54 +0200</pubDate>
       
-      <guid>https://ahmedash95.github.io/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/</guid>
+      <guid>https://ahmedash.com/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/</guid>
       <description>Go is a compiled, statically typed programming language created by Google.
 before starting I will assume that you are installed Go and printed a hello world . if you didn&amp;rsquo;t do that yet install Go on your machine from here.
 What I will discuss/share with u here is how we could write a simple app that sum two integers with a TDD and Code Coverage.

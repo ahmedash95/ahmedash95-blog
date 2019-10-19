@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "https://ahmedash95.github.io/"
+baseurl = "https://ahmedash.com/"
 languageCode = "en-us"
 title = "Ahmed Ashraf"
 theme = "cactus"
@@ -29,7 +29,7 @@ publishDir = "public"
 	enableShare = true
 	enableGoogleAnalytics = true
 	enableDisqus = true
-	disqusShortname = "ahmedash95-blog.disqus.com"
+	disqusShortname = "ahmedash-com"
 
 	# Navigation links
 	home = ""
