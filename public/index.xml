@@ -6,10 +6,20 @@
     <description>Recent content on Ahmed Ashraf</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ahmedash.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang Channels &amp; Monitoring with Prometheus &amp; Grafana</title>
+      <link>https://ahmedash.com/blog/article/golang-channels-and-monitoring/</link>
+      <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahmedash.com/blog/article/golang-channels-and-monitoring/</guid>
+      <description>توضيح صغير قبل ما ابدا و هو ان المقاله دي مجرد سرد لبعض المعلومات اللي قدرت افهمها عن Go Channels و ازاي ممكن استخدمها بشكل صحيح نسبياً و ازاي تكون Scalable ويكون فيه نظام اقدر اتابع منها اداءها عامل ازاي ما هي Go Channels من علي موقع GoLang نفسه بيقول
+ Channels are the pipes that connect concurrent goroutines. You can send values into channels from one goroutine and receive those values into another goroutine.</description>
+    </item>
     
     <item>
       <title>Twitter @ShareAsPic app with Go &amp; Chromedp</title>
