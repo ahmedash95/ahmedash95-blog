@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Ahmed Ashraf</title>
@@ -6,10 +6,21 @@
     <description>Recent content in Blogs on Ahmed Ashraf</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ahmedash.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Symfony 5 The Fast Track review (Arabic)</title>
+      <link>https://ahmedash.com/blog/article/books/symfony-5-fast-track-review-arabic/</link>
+      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ahmedash.com/blog/article/books/symfony-5-fast-track-review-arabic/</guid>
+      <description>بسم الله الرحمن الرحيم
+في المقاله دي هتكلم عن رايي ف كتاب Symfony الجديد Symfony 5 The Fast track و هتكلم عن ايجابيات و سلبيات الكتاب من وجهه نظري الشخصيه
+اولا الكتاب اتكلم ف مواضيع كتير و هتبقي مفيده جدا لاي حد بيبدا يشتغل مع Symfony او PHP عموما. الكتاب بيستعرض المميزات و سهوله سيمفوني في بناء اي تطبيق و المثال اللي الكتاب بيشتغل عليه هو Conference reviews app. ف انت عندك صفحتين في الابلكيشن كله.</description>
+    </item>
     
     <item>
       <title>Golang Channels &amp; Monitoring with Prometheus &amp; Grafana</title>
@@ -17,8 +28,9 @@
       <pubDate>Thu, 31 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ahmedash.com/blog/article/golang-channels-and-monitoring/</guid>
-      <description>توضيح صغير قبل ما ابدا و هو ان المقاله دي مجرد سرد لبعض المعلومات اللي قدرت افهمها عن Go Channels و ازاي ممكن استخدمها بشكل صحيح نسبياً و ازاي تكون Scalable ويكون فيه نظام اقدر اتابع منها اداءها عامل ازاي ما هي Go Channels من علي موقع GoLang نفسه بيقول
- Channels are the pipes that connect concurrent goroutines. You can send values into channels from one goroutine and receive those values into another goroutine.</description>
+      <description>ف تقدر تقول ان الchannels هي عباره عن انابيب بتبعت رساله من ناحيه و تستقبلها من الناحيه التانيه فلما نستخدم ال go routines نقدر بسهوله نعمل asynchronous comunnications و منها انا عملت المثال العملي لل queue &amp;amp; workers لل email service
+طيب ف المثال اللي في فوق احنا مستخدمين goroutine ، لو قولنا نجرب من غير ما نستخدمه ف تبقي بالشكل ده
+هتظهر مشكله الـ deadlock بسبب اننا بعتنا الرساله قبل ان يكون هناك اي مستمع و في نفس الوقت لا يوجد مساحه تخزينيه للـ channel نفسها</description>
     </item>
     
     <item>
@@ -27,7 +39,9 @@
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ahmedash.com/blog/article/golang-chromedp-twitter-app/</guid>
-      <description>العادي ان كل فتره بلاقي تويته عجباني ليها علاقه بشغلي اني بصورها و انزلها ع الفيسبوك عندي او اي جروب انا شايف ان التويته ممكن تكون مفيده فيه. ف استخدمت بعض الادوات المتاحه اللي ساعدتني في اقل من ٢٠ ساعه اني اخلص التطبيق بالشكل اللي انا شايفه مناسب للغرض اللي انا عاوزه او بما معناه MVP و مش تطبيق scalable. ف حابب اني اشارك انا عملتها ازاي واتمني الموضوع يكون مفيد ليك.</description>
+      <description>قبل اي حاجه اتفضل السورس كود للكلام ده كله وتوضيح ان ده مجرد MVP هدفه الوحيد انه مثال ازاي ممكن تستخدم chromeDP
+1 - كعاده شبكات التواصل الاجتماعي كل يوم الاف من الناس بتكتب تغريدات يوميا، و تخزين بعض التغريدات و تحليلها قد ياتي بالنفع لصالح شركه ، او حكوميه او حتي من باب اللعب زي ما انا بعمل دلوقتي
+2 - الخطوه التانيه من دوره الحياه اللي بيعتمد عليها التطبيق ان التغريدات دي لما يستقبلها سيرفر تويتر، بتبدا رحلتها ف كذا نظام معقد جدا و كل نظام ليه مهمه محدده بينفذها ولازم ينفذها علي اكمل وجه</description>
     </item>
     
     <item>
@@ -37,7 +51,7 @@
       
       <guid>https://ahmedash.com/blog/year-review/2018/</guid>
       <description>I don’t know how to start, but I didn’t have the intent to write my farewell, since a lot of people I follow published their farewell, I decided to write one to encourage myself to do better things next year.
-Personal life:  Engaged at 16th Feb. Graduated. Married at 17th August. Moved to Berlin, Germany.  Work: I didn&amp;rsquo;t have a plan to achieve for 2018, so things happened in a random way.</description>
+Personal life:  Engaged at 16th Feb. Graduated. Married at 17th August. Moved to Berlin, Germany.  Work: I didn&#39;t have a plan to achieve for 2018, so things happened in a random way.</description>
     </item>
     
     <item>
@@ -48,7 +62,7 @@ Personal life:  Engaged at 16th Feb. Graduated. Married at 17th August. Moved to
       <guid>https://ahmedash.com/blog/go/golang-mux-ratelimit/</guid>
       <description>A few days ago I published my first go package GoLang Rate Limit.
 the purpose of this package is to prevent DDos attack and control the rate of traffic sent or received on the network. In this article I will describe how to implement it with gorilla/mux.
-So let&amp;rsquo;s start with writing a simple API package main import ( &amp;quot;log&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;github.com/gorilla/mux&amp;quot; ) func main() { // Initialize Router router := mux.</description>
+So let&#39;s start with writing a simple API package main import ( &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;github.com/gorilla/mux&amp;#34; ) func main() { // Initialize Router 	router := mux.</description>
     </item>
     
     <item>
@@ -58,7 +72,7 @@ So let&amp;rsquo;s start with writing a simple API package main import ( &amp;qu
       
       <guid>https://ahmedash.com/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/</guid>
       <description>Go is a compiled, statically typed programming language created by Google.
-before starting I will assume that you are installed Go and printed a hello world . if you didn&amp;rsquo;t do that yet install Go on your machine from here.
+before starting I will assume that you are installed Go and printed a hello world . if you didn&#39;t do that yet install Go on your machine from here.
 What I will discuss/share with u here is how we could write a simple app that sum two integers with a TDD and Code Coverage.
 Step 1 : Starting a new Go Project I will create a simple main.</description>
     </item>

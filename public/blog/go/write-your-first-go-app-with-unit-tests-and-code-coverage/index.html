@@ -7,7 +7,7 @@
 		
 		
 		<meta name="description" content="Backend Engineer @GetYourGuide">
-		<meta name="generator" content="Hugo 0.53" />
+		<meta name="generator" content="Hugo 0.61.0" />
 		<title>Write your first GoLang app with unit tests and code coverage &middot; Ahmed Ashraf</title>
 		<link rel="shortcut icon" href="https://ahmedash.com/images/favicon.ico">
 		<link rel="stylesheet" href="https://ahmedash.com/css/style.css">
@@ -52,82 +52,53 @@
                 </header>
                 
                 <section id="post-body">
-                    
-
-<p>Go is a compiled, statically typed programming language created by Google.</p>
-
-<p>before starting I will assume that you are installed Go and printed a hello world . if you didn&rsquo;t do that yet install Go on your machine from <a href="https://golang.org/doc/install">here</a>.</p>
-
+                    <p>Go is a compiled, statically typed programming language created by Google.</p>
+<p>before starting I will assume that you are installed Go and printed a hello world . if you didn't do that yet install Go on your machine from <a href="https://golang.org/doc/install">here</a>.</p>
 <p>What I will discuss/share with u here is how we could write a simple app that sum two integers with a <a href="https://en.wikipedia.org/wiki/Test-driven_development">TDD</a> and <a href="https://en.wikipedia.org/wiki/Code_coverage">Code Coverage</a>.</p>
-
-<h1 id="step-1-starting-a-new-go-project">Step 1 : Starting a new Go Project</h1>
-
+<h1 id="step-1--starting-a-new-go-project">Step 1 : Starting a new Go Project</h1>
 <p>I will create a simple <code>main.go</code> and <code>main_test.go</code> file, in <strong>Go</strong> when you want to write a tests for your project you write the file name followed by <code>_test.go</code> so our directory structure will be</p>
-
 <pre><code>- $Project_Path
     - main.go
     - main_test.go
-</code></pre>
-
-<h1 id="step-2-write-our-first-unit-test-file">Step 2 : Write our first unit test file</h1>
-
+</code></pre><h1 id="step-2--write-our-first-unit-test-file">Step 2 : Write our first unit test file</h1>
 <p>Now because of <a href="https://en.wikipedia.org/wiki/Test-driven_development">TDD</a> we will write test case first then run it to get a failed test case</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<pre><code class="language-golang">package main
-
-import (
-	&quot;testing&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;testing&#34;</span>
 )
 
-func Test_Sum(t *testing.T){
-	total := Sum(1,2)
-	if total != 3 {
-		t.Errorf(&quot;Sum was incorrect, got: %d, want: %d.&quot;, total, 3)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Test_Sum</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>){
+	<span style="color:#a6e22e">total</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Sum</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">total</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">3</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Sum was incorrect, got: %d, want: %d.&#34;</span>, <span style="color:#a6e22e">total</span>, <span style="color:#ae81ff">3</span>)
 	}
 }
-</code></pre>
+</code></pre></div><p>now from terminal run <code>$ go test</code> you will get the output like below</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./main_test.go:8:11: undefined: Sum
+FAIL    _/Users/ash/tmp/go <span style="color:#f92672">[</span>build failed<span style="color:#f92672">]</span>
+</code></pre></div><p>we need to fix that failed test by writing a sum function in the <code>main.go</code> file</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<p>now from terminal run <code>$ go test</code> you will get the output like below</p>
-
-<pre><code class="language-bash">./main_test.go:8:11: undefined: Sum
-FAIL    _/Users/ash/tmp/go [build failed]
-</code></pre>
-
-<p>we need to fix that failed test by writing a sum function in the <code>main.go</code> file</p>
-
-<pre><code class="language-golang">package main
-
-func Sum(a int, b int) int {
-	return 0
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Sum</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
 }
-</code></pre>
-
-<p>then run the test again and we will get a different error message</p>
-
-<pre><code class="language-bash">--- FAIL: Test_Sum (0.00s)
+</code></pre></div><p>then run the test again and we will get a different error message</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">--- FAIL: Test_Sum <span style="color:#f92672">(</span>0.00s<span style="color:#f92672">)</span>
         main_test.go:10: Sum was incorrect, got: 0, want: 3.
 FAIL
-exit status 1
+exit status <span style="color:#ae81ff">1</span>
 FAIL    _/Users/ash/tmp/go      0.012s
-</code></pre>
+</code></pre></div><p>now we now that our method is defined but doesn't work as expected so let's make it green by updating the <code>Sum()</code> method in our <code>main.go</code> file</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<p>now we now that our method is defined but doesn&rsquo;t work as expected so let&rsquo;s make it green by updating the <code>Sum()</code> method in our <code>main.go</code> file</p>
-
-<pre><code class="language-golang">package main
-
-func Sum(a int, b int) int {
-	return a + b
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Sum</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>
 }
-</code></pre>
-
-<p>then let&rsquo;s run the test again to get a pass test</p>
-
-<pre><code class="language-bash">PASS
+</code></pre></div><p>then let's run the test again to get a pass test</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PASS
 ok      _/Users/ash/tmp/go      0.012s
-</code></pre>
-
-<p><strong>Great</strong> Now let&rsquo;s make our <code>main.go</code> works as a real app by implementing a cli interface</p>
-
+</code></pre></div><p><strong>Great</strong> Now let's make our <code>main.go</code> works as a real app by implementing a cli interface</p>
 <pre><code>package main
 
 import (
@@ -151,12 +122,8 @@ func main() {
 func Sum(a int, b int) int {
 	return a + b
 }
-</code></pre>
-
-<p>Let&rsquo;s explain what i did here is just defining an error variable named <code>err</code> to hold any errors when parsing the integers from console , then we start reading first number then the second and if any line of them contains none integer value we will panic with error if no errors we will print the sum of the two integers.</p>
-
+</code></pre><p>Let's explain what i did here is just defining an error variable named <code>err</code> to hold any errors when parsing the integers from console , then we start reading first number then the second and if any line of them contains none integer value we will panic with error if no errors we will print the sum of the two integers.</p>
 <p>Now if we execute the app using <code>$ go run main.go</code></p>
-
 <pre><code>$ go run main.go
 
 Enter first number: 1
@@ -164,70 +131,39 @@ Enter first number: 1
 Enter second number: 2
 
 Result is : 3
-</code></pre>
-
-<p><strong>Okay</strong> if you think we are good now i&rsquo;m afraid to tell you we didn&rsquo;t finish yet .. tell now we wrote a nice and very simple app but we didn&rsquo;t know do we really covered it well or we miss something ? it might be easy to know because it&rsquo;s a tiny app but when you work on a small or large project we might get lost with this.</p>
-
+</code></pre><p><strong>Okay</strong> if you think we are good now i'm afraid to tell you we didn't finish yet .. tell now we wrote a nice and very simple app but we didn't know do we really covered it well or we miss something ? it might be easy to know because it's a tiny app but when you work on a small or large project we might get lost with this.</p>
 <p>fortunately go has a great cover flag to tell us if our code covered or now</p>
-
-<h1 id="step-3-code-coverage">Step 3 : Code Coverage</h1>
-
+<h1 id="step-3--code-coverage">Step 3 : Code Coverage</h1>
 <p><strong>From <a href="#">GoLang docs</a></strong></p>
-
 <blockquote>
-<p>Test coverage is a term that describes how much of a package&rsquo;s code is exercised by running the package&rsquo;s tests. If executing the test suite causes 80% of the package&rsquo;s source statements to be run, we say that the test coverage is 80%.</p>
+<p>Test coverage is a term that describes how much of a package's code is exercised by running the package's tests. If executing the test suite causes 80% of the package's source statements to be run, we say that the test coverage is 80%.</p>
 </blockquote>
-
-<h3 id="let-s-start">Let&rsquo;s start</h3>
-
-<p>now let&rsquo;s run the <code>$ go test -cover</code> to get the coverage value</p>
-
+<h3 id="lets-start">Let's start</h3>
+<p>now let's run the <code>$ go test -cover</code> to get the coverage value</p>
 <pre><code>PASS
 coverage: 10.0% of statements
 ok      _/Users/ash/tmp/go      0.009s
-</code></pre>
-
-<p><strong>OMG</strong> we just cover 10% of our code only !!. but this result isn&rsquo;t good enough, It must be a better way that helping us visualize this result.</p>
-
+</code></pre><p><strong>OMG</strong> we just cover 10% of our code only !!. but this result isn't good enough, It must be a better way that helping us visualize this result.</p>
 <p>go has a nice test command flag called <code>-coverprofile</code> which is a file that holds the collected statistics so we can study them in more detail.</p>
-
-<p>so let&rsquo;s run our test again with the new flag</p>
-
+<p>so let's run our test again with the new flag</p>
 <pre><code>$ go test -coverprofile=coverage.out
-</code></pre>
-
-<p>now you will find a new file in your project path <code>coverage.out</code> contains the below lines</p>
-
+</code></pre><p>now you will find a new file in your project path <code>coverage.out</code> contains the below lines</p>
 <pre><code>mode: set
 $PROJECT_PATH/main.go:7.13,14.16 7 0
 $PROJECT_PATH/main.go:18.2,18.47 1 0
 $PROJECT_PATH/main.go:14.16,15.13 1 0
 $PROJECT_PATH/main.go:21.28,23.2 1 1
-</code></pre>
-
-<p>I know it&rsquo;s not enough yet .. but guess what ;) Go has a command to visualize the statistics in <code>HTML</code> file</p>
-
+</code></pre><p>I know it's not enough yet .. but guess what ;) Go has a command to visualize the statistics in <code>HTML</code> file</p>
 <pre><code>$ go tool cover -html=coverage.out
-</code></pre>
-
-<p>the above command will open a browser window contains your code with red and green syntax highlighting</p>
-
-<p><img src="/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot.png" alt="code-coverage-screenshot" id="code-coverage-screenshot" style="margin:0 auto;"></p>
-
-<p><strong>Oh</strong> now we know that we didn&rsquo;t test our main function. okay let&rsquo;s write tests for it</p>
-
-<h1 id="step-4-write-testable-code">Step 4 : Write testable code</h1>
-
+</code></pre><p>the above command will open a browser window contains your code with red and green syntax highlighting</p>
+<!-- raw HTML omitted -->
+<p><strong>Oh</strong> now we know that we didn't test our main function. okay let's write tests for it</p>
+<h1 id="step-4--write-testable-code">Step 4 : Write testable code</h1>
 <p>Now we know that we need to cover and write tests for the <code>main()</code> function but our code is not testable and we need to decouple a few things</p>
-
 <pre><code>- move the std input reading to separated method
 - write tests for the reading method
-</code></pre>
-
-<h4 id="step-a-separate-the-reading-method">Step A : Separate the reading method</h4>
-
+</code></pre><h4 id="step-a--separate-the-reading-method">Step A : Separate the reading method</h4>
 <p>in <code>main.go</code> file we will create a method called <code>Read()</code> that takes a io.Reader <code>interface{}</code> and return the value</p>
-
 <pre><code>package main
 
 import (
@@ -266,218 +202,181 @@ func Read(stdIn io.Reader, format string, a ...interface{}) (int, error) {
 func Sum(a int, b int) int {
 	return a + b
 }
-</code></pre>
-
-<p>Now our code is a little bit decoupled and we can use different io readers, now let&rsquo;s write a test case for the <code>Read()</code> method which we must do first but I think this way is better</p>
-
+</code></pre><p>Now our code is a little bit decoupled and we can use different io readers, now let's write a test case for the <code>Read()</code> method which we must do first but I think this way is better</p>
 <h4 id="step-b-writing-test">Step B: writing test</h4>
-
-<pre><code class="language-golang">func Test_Read_Method(t *testing.T) {
-	in, err := ioutil.TempFile(&quot;&quot;, &quot;&quot;)
-	if err != nil {
-		t.Fatal(err)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Test_Read_Method</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+	<span style="color:#a6e22e">in</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">TempFile</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
-	defer in.Close()
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">in</span>.<span style="color:#a6e22e">Close</span>()
 
-	_, err = io.WriteString(in, &quot;3\n&quot;)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	_, err = in.Seek(0, os.SEEK_SET)
-	if err != nil {
-		t.Fatal(err)
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#a6e22e">in</span>, <span style="color:#e6db74">&#34;3\n&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
 
-	reader := bufio.NewReader(in)
-	var v int
-	Read(reader, &quot;%d&quot;, &amp;v)
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">in</span>.<span style="color:#a6e22e">Seek</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">SEEK_SET</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
 
-	if v != 3 {
-		t.Errorf(&quot;invalid result, expected %d got %d&quot;, 3, v)
+	<span style="color:#a6e22e">reader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">in</span>)
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">reader</span>, <span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">v</span>)
+
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">3</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;invalid result, expected %d got %d&#34;</span>, <span style="color:#ae81ff">3</span>, <span style="color:#a6e22e">v</span>)
 	}
 }
-</code></pre>
+</code></pre></div><p>our simple test method just make a temp file writing our input values into it using <code>io.WriteString()</code> method and pass it to our <code>Read()</code> method and make sure it returns the expected value</p>
+<p>Now let's run our code coverage test again to check the result</p>
+<!-- raw HTML omitted -->
+<p>Now we need to test our main method but we need a tiny edit in our code which is to set the reader and stdout objects so we can inject our reader into main function .. unfortunately GO doesn't have constructors so we can't use <a href="https://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a>
+but a <code>setter and getter</code> approach would be perfect , now let's update our code</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<p>our simple test method just make a temp file writing our input values into it using <code>io.WriteString()</code> method and pass it to our <code>Read()</code> method and make sure it returns the expected value</p>
-
-<p>Now let&rsquo;s run our code coverage test again to check the result</p>
-
-<p><img src="/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-2.png" alt="code-coverage-screenshot-2" id="code-coverage-screenshot-2" style="margin:0 auto;"></p>
-
-<p>Now we need to test our main method but we need a tiny edit in our code which is to set the reader and stdout objects so we can inject our reader into main function .. unfortunately GO doesn&rsquo;t have constructors so we can&rsquo;t use <a href="https://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection</a>
-but a <code>setter and getter</code> approach would be perfect , now let&rsquo;s update our code</p>
-
-<pre><code class="language-golang">package main
-
-import (
-	&quot;bufio&quot;
-	&quot;fmt&quot;
-	&quot;io&quot;
-	&quot;os&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;bufio&#34;</span>
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;io&#34;</span>
+	<span style="color:#e6db74">&#34;os&#34;</span>
 )
 
-var (
-	ioReader *bufio.Reader = bufio.NewReader(os.Stdin)
-	writer   io.Writer     = os.Stdout
+<span style="color:#66d9ef">var</span> (
+	<span style="color:#a6e22e">ioReader</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">Reader</span> = <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdin</span>)
+	<span style="color:#a6e22e">writer</span>   <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Writer</span>     = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdout</span>
 )
 
-func setReader(ir *bufio.Reader) {
-	ioReader = ir
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setReader</span>(<span style="color:#a6e22e">ir</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">Reader</span>) {
+	<span style="color:#a6e22e">ioReader</span> = <span style="color:#a6e22e">ir</span>
 }
 
-func setWriter(wr io.Writer) {
-	writer = wr
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setWriter</span>(<span style="color:#a6e22e">wr</span> <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Writer</span>) {
+	<span style="color:#a6e22e">writer</span> = <span style="color:#a6e22e">wr</span>
 }
 
-func main() {
-	var err error
-	var n1, n2 int
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span> <span style="color:#66d9ef">int</span>
 
-	fmt.Print(&quot;Enter first number: &quot;)
-	_, err = Read(ioReader, &quot;%d\n&quot;, &amp;n1)
-	if err != nil {
-		panic(err)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#e6db74">&#34;Enter first number: &#34;</span>)
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">ioReader</span>, <span style="color:#e6db74">&#34;%d\n&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">n1</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
 	}
 
-	fmt.Print(&quot;Enter second number: &quot;)
-	_, err = Read(ioReader, &quot;%d\n&quot;, &amp;n2)
-	if err != nil {
-		panic(err)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#e6db74">&#34;Enter second number: &#34;</span>)
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">ioReader</span>, <span style="color:#e6db74">&#34;%d\n&#34;</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">n2</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
 	}
 
-	fmt.Fprintf(writer, &quot;\nResult is : %d\n&quot;, Sum(n1, n2))
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">writer</span>, <span style="color:#e6db74">&#34;\nResult is : %d\n&#34;</span>, <span style="color:#a6e22e">Sum</span>(<span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>))
 }
 
-func Read(ir io.Reader, format string, a ...interface{}) (int, error) {
-	return fmt.Fscanf(ir, format, a...)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">ir</span> <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Reader</span>, <span style="color:#a6e22e">format</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">a</span> <span style="color:#f92672">...</span><span style="color:#66d9ef">interface</span>{}) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">error</span>) {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fscanf</span>(<span style="color:#a6e22e">ir</span>, <span style="color:#a6e22e">format</span>, <span style="color:#a6e22e">a</span><span style="color:#f92672">...</span>)
 }
 
-func Sum(a int, b int) int {
-	return a + b
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Sum</span>(<span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>
 }
-</code></pre>
-
-<p>we just added these few lines to help use control the in and output io</p>
-
-<pre><code class="language-golang">var (
-	ioReader *bufio.Reader = bufio.NewReader(os.Stdin)
-	writer   io.Writer     = os.Stdout
+</code></pre></div><p>we just added these few lines to help use control the in and output io</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">var</span> (
+	<span style="color:#a6e22e">ioReader</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">Reader</span> = <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdin</span>)
+	<span style="color:#a6e22e">writer</span>   <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Writer</span>     = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdout</span>
 )
 
-func setReader(ir *bufio.Reader) {
-	ioReader = ir
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setReader</span>(<span style="color:#a6e22e">ir</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">Reader</span>) {
+	<span style="color:#a6e22e">ioReader</span> = <span style="color:#a6e22e">ir</span>
 }
 
-func setWriter(wr io.Writer) {
-	writer = wr
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setWriter</span>(<span style="color:#a6e22e">wr</span> <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Writer</span>) {
+	<span style="color:#a6e22e">writer</span> = <span style="color:#a6e22e">wr</span>
 }
-</code></pre>
-
-<p>now let&rsquo;s write our test to <code>main()</code> function</p>
-
-<pre><code class="language-golang">func Test_Main_Method(t *testing.T) {
-	in, err := ioutil.TempFile(&quot;&quot;, &quot;&quot;)
-	if err != nil {
-		t.Fatal(err)
+</code></pre></div><p>now let's write our test to <code>main()</code> function</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Test_Main_Method</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+	<span style="color:#a6e22e">in</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">TempFile</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
-	defer in.Close()
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">in</span>.<span style="color:#a6e22e">Close</span>()
 
-	_, err = io.WriteString(in, &quot;3\n4\n&quot;)
-	if err != nil {
-		t.Fatal(err)
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#a6e22e">in</span>, <span style="color:#e6db74">&#34;3\n4\n&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
 
-	_, err = in.Seek(0, os.SEEK_SET)
-	if err != nil {
-		t.Fatal(err)
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">in</span>.<span style="color:#a6e22e">Seek</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">SEEK_SET</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
 
-	expected := &quot;Result is : 7&quot;
+	<span style="color:#a6e22e">expected</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;Result is : 7&#34;</span>
 
-	var b bytes.Buffer
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">Buffer</span>
 
-	// run main function
-	reader := bufio.NewReader(in)
-	setReader(reader)
-	setWriter(&amp;b)
-	main()
+	<span style="color:#75715e">// run main function
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">reader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">in</span>)
+	<span style="color:#a6e22e">setReader</span>(<span style="color:#a6e22e">reader</span>)
+	<span style="color:#a6e22e">setWriter</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>)
+	<span style="color:#a6e22e">main</span>()
 
-	actual := strings.TrimSpace(b.String())
-	// _ = expected
-	if actual != expected {
-		t.Errorf(&quot;invalid result, expected %s got %s&quot;, actual, expected)
+	<span style="color:#a6e22e">actual</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimSpace</span>(<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">String</span>())
+	<span style="color:#75715e">// _ = expected
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">actual</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">expected</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;invalid result, expected %s got %s&#34;</span>, <span style="color:#a6e22e">actual</span>, <span style="color:#a6e22e">expected</span>)
 	}
 }
-</code></pre>
-
-<p>as you see we just create an <code>io reader</code> and a <code>Buffer</code> to catch the output of our main method</p>
-
-<p>Let&rsquo;s run our tests again</p>
-
-<pre><code class="language-bash">$ go test -coverprofile=coverage.out &amp;&amp; go tool cover -html=coverage.out
-</code></pre>
-
-<p><img src="/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-3.png" alt="code-coverage-screenshot-3" id="code-coverage-screenshot-3" style="margin:0 auto;"></p>
-
+</code></pre></div><p>as you see we just create an <code>io reader</code> and a <code>Buffer</code> to catch the output of our main method</p>
+<p>Let's run our tests again</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go test -coverprofile<span style="color:#f92672">=</span>coverage.out <span style="color:#f92672">&amp;&amp;</span> go tool cover -html<span style="color:#f92672">=</span>coverage.out
+</code></pre></div><!-- raw HTML omitted -->
 <p><strong>Yaaaay</strong> we made a good progress , just a two <code>panics</code> to reach 100% coverage</p>
-
-<h4 id="step-c-play-with-panics">Step C : Play with panics</h4>
-
+<h4 id="step-c--play-with-panics">Step C : Play with panics</h4>
 <p>Panics is the way to kill the running process of our app.</p>
-
 <p><strong>From <a href="https://gobyexample.com/panic">GO-By-Example</a></strong></p>
-
 <blockquote>
 <p>A panic typically means something went unexpectedly wrong. Mostly we use it to fail fast on errors that shouldn’t occur during normal operation, or that we aren’t prepared to handle gracefully.</p>
 </blockquote>
-
-<p>because <code>testing</code> doesn&rsquo;t really have the concept of &ldquo;success,&rdquo; only failure. So it&rsquo;s really easy to test panics in go. we just need to tests two cases only <code>First</code> and <code>Second</code> number panics</p>
-
-<pre><code class="language-golang">func Test_it_panics_when_receive_un_expected_input_for_first_number(t *testing.T) {
-	defer func() {
-		// When no panics fire the error method
-		if r := recover(); r == nil {
-			t.Errorf(&quot;The main method did not panic when we enter invalid values&quot;)
+<p>because <code>testing</code> doesn't really have the concept of &ldquo;success,&rdquo; only failure. So it's really easy to test panics in go. we just need to tests two cases only <code>First</code> and <code>Second</code> number panics</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Test_it_panics_when_receive_un_expected_input_for_first_number</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+	<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+		<span style="color:#75715e">// When no panics fire the error method
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">r</span> <span style="color:#f92672">:=</span> recover(); <span style="color:#a6e22e">r</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;The main method did not panic when we enter invalid values&#34;</span>)
 		}
     }()
 
-	in, err := ioutil.TempFile(&quot;&quot;, &quot;&quot;)
-	if err != nil {
-		t.Fatal(err)
+	<span style="color:#a6e22e">in</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">TempFile</span>(<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
-	defer in.Close()
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">in</span>.<span style="color:#a6e22e">Close</span>()
 
-	_, err = io.WriteString(in, &quot;ah\n4\n&quot;)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	_, err = in.Seek(0, os.SEEK_SET)
-	if err != nil {
-		t.Fatal(err)
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#a6e22e">in</span>, <span style="color:#e6db74">&#34;ah\n4\n&#34;</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
 	}
 
-	// run main function
-	reader := bufio.NewReader(in)
-	setReader(reader)
-	main()
+	<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">in</span>.<span style="color:#a6e22e">Seek</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">SEEK_SET</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+	}
+
+	<span style="color:#75715e">// run main function
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">reader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">in</span>)
+	<span style="color:#a6e22e">setReader</span>(<span style="color:#a6e22e">reader</span>)
+	<span style="color:#a6e22e">main</span>()
 
 }
-</code></pre>
-
-<p>So now the above test method will fail if the code running without any panics, don&rsquo;t forget to duplicate the same test case for the <code>Second number</code>.</p>
-
-<p>Now let&rsquo;s try running the tests with coverage and get a <code>100%</code> code coverage</p>
-
-<p><img src="/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-4.png" alt="code-coverage-screenshot-4" id="code-coverage-screenshot-4" style="margin:0 auto;"></p>
-
+</code></pre></div><p>So now the above test method will fail if the code running without any panics, don't forget to duplicate the same test case for the <code>Second number</code>.</p>
+<p>Now let's try running the tests with coverage and get a <code>100%</code> code coverage</p>
+<!-- raw HTML omitted -->
 <p><strong>Yaaay we did it</strong></p>
-
 <h1 id="conclusions">Conclusions</h1>
-
 <p>Write software is easy but writing a perfect one is not. in this article we explored many things hope you enjoyed it</p>
-
 <ul>
 <li>Unit Tests</li>
 <li>Test Panics</li>
@@ -485,10 +384,8 @@ func setWriter(wr io.Writer) {
 <li>Code Coverage Reporting</li>
 <li>Playing with IO buffers</li>
 </ul>
-
 <h1 id="finally">Finally</h1>
-
-<p>I&rsquo;m not an expert Gopher so If you see something wrong here please post a comment to fix it</p>
+<p>I'm not an expert Gopher so If you see something wrong here please post a comment to fix it</p>
 
                 </section>
             </article>
@@ -529,6 +426,10 @@ func setWriter(wr io.Writer) {
 
     
     
+    
+        <li>
+            <a href="/blog/article/books/symfony-5-fast-track-review-arabic/">Symfony 5 The Fast Track review (Arabic)<aside class="dates">Jan 12 2020</aside></a>
+        </li>
     
         <li>
             <a href="/blog/article/golang-channels-and-monitoring/">Golang Channels &amp; Monitoring with Prometheus &amp; Grafana<aside class="dates">Oct 31 2019</aside></a>

@@ -1,6 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://ahmedash.com/</loc>
+    <lastmod>2020-01-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahmedash.com/blog/</loc>
+    <lastmod>2020-01-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ahmedash.com/blog/article/books/symfony-5-fast-track-review-arabic/</loc>
+    <lastmod>2020-01-12T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>https://ahmedash.com/blog/article/golang-channels-and-monitoring/</loc>
@@ -28,25 +43,11 @@
   </url>
   
   <url>
-    <loc>https://ahmedash.com/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://ahmedash.com/blog/</loc>
-    <lastmod>2019-10-31T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ahmedash.com/categories/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ahmedash.com/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>

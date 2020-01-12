@@ -1,6 +1,8 @@
 ---
 title: "Symfony 5 The Fast Track review (Arabic)"
 date: 2020-01-12
+description: 'Symfony 5 The Fast Track book review'
+cover: '/images/article/books/symfony-5-the-fast-track/book.jpeg'
 ---
 {{< rtl/start >}}
 بسم الله الرحمن الرحيم
