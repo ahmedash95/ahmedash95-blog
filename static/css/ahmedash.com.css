@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo|Roboto+Mono&display=swap');
+
+div, p {
+    font-family: 'Cairo', sans-serif;
+    font-size: 15pt;
+}
+
+pre {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.highlight pre {
+    font-size: 10pt;
+    text-align: left;
+    direction: ltr;
+    overflow: scroll;
+}
