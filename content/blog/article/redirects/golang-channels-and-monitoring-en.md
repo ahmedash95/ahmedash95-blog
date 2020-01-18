@@ -1,5 +1,5 @@
 ---
-title: "Golang Channels & Monitoring with Prometheus & Grafana (English)"
+title: "Golang Channels & Monitoring with Prometheus & Grafana"
 date: 2019-12-08
 affiliatelink: "https://dev.to/ahmedash95/understand-golang-channels-and-how-to-monitor-with-grafana-154"
 ---

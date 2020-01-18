@@ -1,5 +1,5 @@
 ---
-title: "Webpack, Vue, Tailwind, TypeScript for 2020 (English)"
+title: "Webpack, Vue, Tailwind, TypeScript for 2020"
 date: 2020-01-16
 affiliatelink: "https://dev.to/ahmedash95/webpack-vue-tailwind-typescript-for-2020-l9d"
 ---

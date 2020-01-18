@@ -14,5 +14,6 @@
     {{ range site.RegularPages.GroupByDate "2006" -}}
         {{ partial "posts.html" . }}
     {{ end }}
+    {{ partial "subscribe-form.html" . }}
 </section>
 {{ end }}

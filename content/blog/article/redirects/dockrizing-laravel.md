@@ -1,5 +1,5 @@
 ---
-title: "Simple steps to Dockerize your Laravel app (English)"
+title: "Simple steps to Dockerize your Laravel app"
 date: 2019-12-18
 affiliatelink: "https://dev.to/ahmedash95/simple-steps-to-dockrize-your-laravel-app-4h40"
 ---

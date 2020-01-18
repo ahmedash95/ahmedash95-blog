@@ -5,8 +5,20 @@
         {{ range .Pages -}}
         <li class="mb-6 md:flex md:flex-row">
             <time class=" block md:flex-l-24" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
+            {{ if eq .Params.lang "AR" }}
+                <span class="bg-green-200 h-6 rounded px-1 text-center text-green-500">AR</span>
+            {{ else }}
+                <span class="bg-purple-200 h-6 rounded px-1 text-center text-purple-500">EN</span>
+            {{ end }}
             {{ if .Params.affiliatelink }}
-                <a class="text-lg md:ml-12" target="_blank" href="{{ .Params.affiliatelink }}">{{ .Title }}</a>
+                <div class="flex">
+                    <a class="text-lg md:ml-12" target="_blank" href="{{ .Params.affiliatelink }}">{{ .Title }}</a>
+                    <svg width="10" height="5" viewBox="0 0 10 5" xmlns="http://www.w3.org/2000/svg" class="ml-2 mt-4 text-blue-800">
+                        <path
+                            d="M0.95 2.5C0.95 1.645 1.645 0.95 2.5 0.95H4.5V0H2.5C1.12 0 0 1.12 0 2.5C0 3.88 1.12 5 2.5 5H4.5V4.05H2.5C1.645 4.05 0.95 3.355 0.95 2.5ZM3 3H7V2H3V3ZM7.5 0H5.5V0.95H7.5C8.355 0.95 9.05 1.645 9.05 2.5C9.05 3.355 8.355 4.05 7.5 4.05H5.5V5H7.5C8.88 5 10 3.88 10 2.5C10 1.12 8.88 0 7.5 0Z"
+                            fill="currentColor" />
+                    </svg>
+                </div>
             {{ else }}
                 <a class="text-lg md:ml-12" href="{{ .RelPermalink }}">{{ .Title }}</a>
             {{ end }}

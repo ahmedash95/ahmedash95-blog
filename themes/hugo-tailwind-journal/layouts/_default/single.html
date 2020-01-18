@@ -23,6 +23,9 @@
 <article class="mb-12">
     {{ .Content }}
 
+    {{ partial "subscribe-form.html" . }}
+
     {{ template "_internal/disqus.html" . }}
 </article>
+
 {{ end }}

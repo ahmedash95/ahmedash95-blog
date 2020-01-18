@@ -1,6 +1,7 @@
 ---
-title: "Golang Channels & Monitoring with Prometheus & Grafana (Arabic)"
+title: "Golang Channels & Monitoring with Prometheus & Grafana"
 date: 2019-10-31
+lang: AR
 ---
 {{< rtl/start >}}
 توضيح صغير قبل ما ابدا و هو ان المقاله دي مجرد سرد لبعض المعلومات اللي قدرت افهمها عن Go Channels و ازاي ممكن استخدمها بشكل صحيح نسبياً و ازاي تكون Scalable
