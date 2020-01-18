@@ -69,8 +69,10 @@ cover: '/images/article/books/symfony-5-the-fast-track/book.jpeg'
 
 {{< ltr/start >}}
 ```php
-$article->setStatus('published');
-$this->entityManager->flush();
+    
+    $article->setStatus('published');
+    $this->entityManager->flush();
+
 ```
 {{< ltr/end >}}
 

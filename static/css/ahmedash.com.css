@@ -9,9 +9,35 @@ pre {
     font-family: 'Roboto Mono', monospace;
 }
 
+h1 {
+    font-size: 24pt!important;
+}
+
+h2 {
+    font-size: 20pt!important;
+}
+
+h3 {
+    font-size: 18pt!important;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+pre,img {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .highlight pre {
     font-size: 10pt;
     text-align: left;
     direction: ltr;
     overflow: scroll;
+    padding: 20px;
+}
+
+p > code {
+    background-color: #ccc;
+    padding: 5px;
 }
