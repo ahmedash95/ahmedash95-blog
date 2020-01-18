@@ -13,7 +13,7 @@ What I will discuss/share with u here is how we could write a simple app that su
 
 I will create a simple `main.go` and `main_test.go` file, in **Go** when you want to write a tests for your project you write the file name followed by `_test.go` so our directory structure will be
 
-```
+```bash
 - $Project_Path
     - main.go
     - main_test.go
@@ -83,7 +83,7 @@ ok      _/Users/ash/tmp/go      0.012s
 
 **Great** Now let's make our `main.go` works as a real app by implementing a cli interface
 
-```
+```go
 package main
 
 import (
@@ -111,7 +111,7 @@ func Sum(a int, b int) int {
 Let's explain what i did here is just defining an error variable named `err` to hold any errors when parsing the integers from console , then we start reading first number then the second and if any line of them contains none integer value we will panic with error if no errors we will print the sum of the two integers.
 
 Now if we execute the app using `$ go run main.go`
-```
+```go
 $ go run main.go
 
 Enter first number: 1
@@ -134,7 +134,7 @@ fortunately go has a great cover flag to tell us if our code covered or now
 ### Let's start
 
 now let's run the `$ go test -cover` to get the coverage value
-```
+```bash
 PASS
 coverage: 10.0% of statements
 ok      _/Users/ash/tmp/go      0.009s
@@ -145,12 +145,12 @@ go has a nice test command flag called `-coverprofile` which is a file that hold
 
 so let's run our test again with the new flag
 
-```
+```bash
 $ go test -coverprofile=coverage.out
 ```
 
 now you will find a new file in your project path `coverage.out` contains the below lines
-```
+```bash
 mode: set
 $PROJECT_PATH/main.go:7.13,14.16 7 0
 $PROJECT_PATH/main.go:18.2,18.47 1 0
@@ -160,14 +160,14 @@ $PROJECT_PATH/main.go:21.28,23.2 1 1
 
 I know it's not enough yet .. but guess what ;) Go has a command to visualize the statistics in `HTML` file
 
-```
+```bash
 $ go tool cover -html=coverage.out
 ```
 
 the above command will open a browser window contains your code with red and green syntax highlighting
 
 
-<img src="/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot.png" alt="code-coverage-screenshot" id="code-coverage-screenshot" style="margin:0 auto;">
+![code-coverage-screenshot](/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot.png)
 
 
 **Oh** now we know that we didn't test our main function. okay let's write tests for it
@@ -185,7 +185,7 @@ Now we know that we need to cover and write tests for the `main()` function but 
 
 in `main.go` file we will create a method called `Read()` that takes a io.Reader `interface{}` and return the value
 
-```
+```go
 package main
 
 import (
@@ -260,7 +260,7 @@ our simple test method just make a temp file writing our input values into it us
 
 Now let's run our code coverage test again to check the result
 
-<img src="/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-2.png" alt="code-coverage-screenshot-2" id="code-coverage-screenshot-2" style="margin:0 auto;">
+![code-coverage-screenshot-2](/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-2.png)
 
 Now we need to test our main method but we need a tiny edit in our code which is to set the reader and stdout objects so we can inject our reader into main function .. unfortunately GO doesn't have constructors so we can't use [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
 but a `setter and getter` approach would be perfect , now let's update our code
@@ -379,7 +379,7 @@ Let's run our tests again
 $ go test -coverprofile=coverage.out && go tool cover -html=coverage.out
 ```
 
-<img src="/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-3.png" alt="code-coverage-screenshot-3" id="code-coverage-screenshot-3" style="margin:0 auto;">
+![code-coverage-screenshot-3](/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-3.png)
 
 **Yaaaay** we made a good progress , just a two `panics` to reach 100% coverage
 
@@ -431,7 +431,7 @@ So now the above test method will fail if the code running without any panics, d
 Now let's try running the tests with coverage and get a `100%` code coverage
 
 
-<img src="/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-4.png" alt="code-coverage-screenshot-4" id="code-coverage-screenshot-4" style="margin:0 auto;">
+![code-coverage-screenshot-4](/images/blog/go/write-your-first-go-app-with-unit-tests-and-code-coverage/code-coverage-screenshot-4.png)
 
 
 **Yaaay we did it**

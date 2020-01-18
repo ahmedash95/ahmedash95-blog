@@ -1,7 +1,7 @@
 ---
-title: "Golang Channels & Monitoring with Prometheus & Grafana"
-date: 2019-10-31
-lang: AR
+title: "Webpack, Vue, Tailwind, TypeScript for 2020"
+date: 2020-01-16
+affiliatelink: "https://dev.to/ahmedash95/webpack-vue-tailwind-typescript-for-2020-l9d"
 ---
 {{< rtl/start >}}
 توضيح صغير قبل ما ابدا و هو ان المقاله دي مجرد سرد لبعض المعلومات اللي قدرت افهمها عن Go Channels و ازاي ممكن استخدمها بشكل صحيح نسبياً و ازاي تكون Scalable

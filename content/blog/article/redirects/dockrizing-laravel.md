@@ -1,7 +1,7 @@
 ---
-title: "Golang Channels & Monitoring with Prometheus & Grafana"
-date: 2019-10-31
-lang: AR
+title: "Simple steps to Dockerize your Laravel app"
+date: 2019-12-18
+affiliatelink: "https://dev.to/ahmedash95/simple-steps-to-dockrize-your-laravel-app-4h40"
 ---
 {{< rtl/start >}}
 توضيح صغير قبل ما ابدا و هو ان المقاله دي مجرد سرد لبعض المعلومات اللي قدرت افهمها عن Go Channels و ازاي ممكن استخدمها بشكل صحيح نسبياً و ازاي تكون Scalable

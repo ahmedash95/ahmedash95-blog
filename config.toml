@@ -2,7 +2,8 @@
 baseurl = "https://ahmedash.com/"
 languageCode = "en-us"
 title = "Ahmed Ashraf"
-theme = "cactus"
+theme = "hugo-tailwind-journal"
+PygmentsStyle = "github"
 # Enter your tracking code to enable Google Analytics
 googleAnalytics = "UA-93950970-1"
 # Publisher Directory
@@ -15,6 +16,9 @@ publishDir = "public"
 	# Enter optionally your twitter account
 	twitter = "ahmedash95"
 	enableRSS = false
+
+	author = "Ahmed Ashraf"
+    avatar = "images/avatar.png"
 
 	# Integrate Javascript files or stylesheets by adding the url to the external assets or by
 	# linking local files with their path relative to the static folder, e.g. "css/styles.css"

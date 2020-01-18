@@ -9,25 +9,27 @@ the purpose of this package is to prevent DDos attack and control the rate of tr
 
 ## So let's start with writing a simple API
 ```golang
-package main
 
-import (
-	"log"
-	"net/http"
+	package main
 
-	"github.com/gorilla/mux"
-)
+	import (
+		"log"
+		"net/http"
 
-func main() {
-	// Initialize Router
-	router := mux.NewRouter()
-	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello"))
-	})
-	// Start Server
-	log.Println("Starting server on port http://localhost:8000")
-	http.ListenAndServe(":8000", router)
-}
+		"github.com/gorilla/mux"
+	)
+
+	func main() {
+		// Initialize Router
+		router := mux.NewRouter()
+		router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+			w.Write([]byte("Hello"))
+		})
+		// Start Server
+		log.Println("Starting server on port http://localhost:8000")
+		http.ListenAndServe(":8000", router)
+	}
+
 ```
 
 So I just made a new **Router** that returns `Hello` word.
@@ -37,32 +39,36 @@ the next step is to implement the rate limit module
 #### First let's create a variable to hold a ratelimit object in the main function
 the ratelimit will receive 1 request per second
 ```golang
-// hold the rate limit object
-var ratelimit rl.Limit
 
-func main() {
-    // Create ratelimit Object
-    ratelimit = rl.CreateLimit("1r/s")
+	// hold the rate limit object
+	var ratelimit rl.Limit
 
-    // Initialize Router
-    router := mux.NewRouter()
-    router.Handle("/",
-    // ....
+	func main() {
+		// Create ratelimit Object
+		ratelimit = rl.CreateLimit("1r/s")
+
+		// Initialize Router
+		router := mux.NewRouter()
+		router.Handle("/",
+		// ....
+
 ```
 then we will add 2 more methods one for the middleware and another one to validate the limit
 ```golang
-func isValidRequest(l rl.Limit, key string) bool {
-    // check if key exists
-	_, ok := l.Rates[key]
-	if !ok {
+
+	func isValidRequest(l rl.Limit, key string) bool {
+		// check if key exists
+		_, ok := l.Rates[key]
+		if !ok {
+			return true
+		}
+		// check if the hits reached the allowed number of requests
+		if l.Rates[key].Hits == l.MaxRequests {
+			return false
+		}
 		return true
-    }
-    // check if the hits reached the allowed number of requests
-	if l.Rates[key].Hits == l.MaxRequests {
-		return false
 	}
-	return true
-}
+
 ```
 ```golang
 func RateLimitMiddleware(h http.Handler) http.Handler {
@@ -156,7 +162,7 @@ func isValidRequest(l rl.Limit, key string) bool {
 $   siege -b -r 1 -c 10 "http://localhost:8000"
 ```
 
-<img src="/images/blog/go/golang-mux-ratelimit/siege-benchmarking.png">
+![siege-benchmarking](/images/blog/go/golang-mux-ratelimit/siege-benchmarking.png)
 
 The above command sends a 10 requests in the same second so the result is 1 accepted request and 9 blocked requests with 503 response code
 
