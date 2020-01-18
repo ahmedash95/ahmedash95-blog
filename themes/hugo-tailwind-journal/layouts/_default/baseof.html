@@ -23,7 +23,7 @@
     <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
-    <meta property="og:image" content="{{ .Site.Params.Avatar | absURL }}">
+    <meta property="og:image" content="{{ if $.Params.cover }}{{ $.Params.cover | absURL }}{{else}}{{ "/images/background.jpeg" | absURL }}{{end}}">
     
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 

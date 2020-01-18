@@ -12,7 +12,7 @@ publishDir = "public"
 [params]
 	name = "Ahmed Ashraf"
 	description = "Backend Engineer interested in PHP,GO,Javascript and Databases"
-	tagline = "Backend Engineer interested in PHP,GO,Javascript and Databases"
+	tagline = "Backend Engineer interested in PHP, GO, Javascript and Databases"
 	# Enter optionally your twitter account
 	twitter = "ahmedash95"
 	enableRSS = false
