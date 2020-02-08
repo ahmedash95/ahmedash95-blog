@@ -6,6 +6,7 @@ theme = "hugo-tailwind-journal"
 PygmentsStyle = "github"
 # Enter your tracking code to enable Google Analytics
 googleAnalytics = "UA-93950970-1"
+DisqusShortname = "ahmedash-com"
 # Publisher Directory
 publishDir = "public"
 
@@ -33,7 +34,7 @@ publishDir = "public"
 	enableShare = true
 	enableGoogleAnalytics = true
 	enableDisqus = true
-	disqusShortname = "ahmedash-com"
+	DisqusShortname = "ahmedash-com"
 
 	# Navigation links
 	home = ""
