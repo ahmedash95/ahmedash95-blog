@@ -7,7 +7,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
@@ -15,7 +15,7 @@
     <meta name="twitter:site" content="{{ .Site.BaseURL }}">
     <meta name="twitter:creator" content="{{ .Params.Author }}">
     <meta name="twitter:image" content="{{ .Site.Params.Avatar | absURL }}">
-    
+
     <!-- Open-Graph Data -->
     <meta property="og:locale" content="{{ .Site.Params.LanguageCode }}">
     <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
@@ -24,7 +24,7 @@
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:image" content="{{ if $.Params.cover }}{{ $.Params.cover | absURL }}{{else}}{{ "/images/background.jpeg" | absURL }}{{end}}">
-    
+
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
     <meta name="author" content="{{ .Site.Params.Author }}">
@@ -45,44 +45,58 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
     <link rel="stylesheet" href="{{ "css/tailwind.min.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "css/theme.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/github-gist.min.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "css/ahmedash.com.css" | absURL }}">
+    <script src="https://kit.fontawesome.com/e0031daf6e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2:400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Baloo 2', cursive;
+        }
+    </style>
 </head>
-<body class="font-serif bg-gray-200 border-t-4 border-blue-500 antialiased">
-    <div class="w-full p-6 md:w-2/3 md:px-0 md:mx-auto xl:w-2/5">
-        <header class="mb-6">
-            <!-- All the pages must have a heading block, defaults to a link for the home page and a title. -->
-            <div class="mb-6 md:flex md:items-center">
-                {{ block "heading" . }}
-                    <div>
-                        {{ partial "back-home.html" . }}
-                        <h1 class="text-4xl font-bold">{{ .Title }}</h1>
+<body class="border-gray-800 bg-gray-100 pt-8">
+    <div class="container mx-auto">
+        {{ block "top" . }}{{ end }}
+        <div>
+            <div class="md:w-1/3 w-full inline-block px-2">
+                <div class="bg-white px-8 py-12 rounded-lg mb-4" style="text-align: -webkit-center;">
+                    {{ if .Site.Params.Avatar }}
+                    <img class="block w-32 rounded-full" src="{{ .Site.Params.Avatar | absURL }}"
+                        alt="{{ .Site.Params.Author }}">
+                    {{ end }}
+                    <p class="text-2xl mt-4 text-gray-800 font-semibold">{{ .Site.Title }}</p>
+                    <p class="mt-2 text-gray-700">{{ .Site.Params.tagline }}</p>
+                    <div class="mt-8 text-gray-600">
+                        <i class="mx-2 fab fa-facebook-square fa-lg"></i>
+                        <i class="mx-2 fab fa-twitter fa-lg"></i>
+                        <i class="mx-2 fab fa-linkedin fa-lg"></i>
+                        <i class="mx-2 fab fa-youtube fa-lg"></i>
                     </div>
-                {{ end }}
+                </div>
+
+                <div class="bg-white p-8 rounded-lg mb-4" style="text-align: -webkit-center;">
+                    <p class="mt-2 text-gray-700">Stay up to date with all things Go, PHP, JavaScript and Databases</p>
+                    <input
+                        class="bg-gray-200 mt-4 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+                        type="email" placeholder="jane@example.com">
+                    <button class="bg-gray-800 hover:bg-gray-900 text-white mt-4 font-semibold py-2 px-4 rounded-lg w-full h-12">
+                        Subscribe
+                    </button>
+                </div>
             </div>
 
-            <!-- If the blog has translation, they shoul be displayed here. -->
-            {{ if .IsTranslated }}
-            <nav>
-                {{ range $i, $lang := .Translations }}
-                {{ if $i }}/{{ end }}
-                <a href="{{ .Permalink }}">{{ $lang.Language.LanguageName }}</a>
-                {{ end}}
-            </nav>
-            {{ end }}
-        </header>
-
-        <!-- The content block. -->
-        {{ block "content" . }}{{ end }}
-
-        <footer>
-            <p>
-                &copy; {{ now.Format "2006"}}. Proudly made with 💕 with <a href="https://gohugo.io/" target="_blank">Hugo</a> and <a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a>.
-            </p>
-        </footer>
+            <div class="md:w-2/3 w-full inline-block px-2 float-right">
+                <!-- The content block. -->
+                {{ block "content" . }}{{ end }}
+            </div>
+            <div class="clearfix"></div>
+        </div>
     </div>
-
+    <footer class="w-full text-center pt-3 mb-3">
+        <p>
+            &copy; {{ now.Format "2006"}}
+        </p>
+    </footer>
     {{ template "_internal/google_analytics.html" . }}
 </body>
 </html>

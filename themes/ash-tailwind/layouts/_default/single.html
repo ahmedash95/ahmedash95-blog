@@ -1,0 +1,24 @@
+{{ define "top" }}
+    {{ partial "back-home.html" . }}
+{{ end }}
+
+{{ define "content" }}
+<div class="bg-white p-8 rounded-lg mb-4">
+    <p class="text-4xl inline">{{ .Title }}</p>
+    <time class="text-blue-800 mb-4 block" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+    <!-- Tags -->
+    {{ with .Params.tags }}
+    <ol class="mt-4">
+        {{ range . }}
+        <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-lg mr-2"><a href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a></span>
+        {{ end }}
+    </ol>
+    {{ end }}
+    <!-- Content -->
+    <span class="leading-loose">
+        {{ .Content }}
+    </span>
+    {{ template "_internal/disqus.html" . }}
+    </div>
+</div>
+{{ end }}

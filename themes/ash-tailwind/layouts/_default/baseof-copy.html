@@ -7,7 +7,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
@@ -15,7 +15,7 @@
     <meta name="twitter:site" content="{{ .Site.BaseURL }}">
     <meta name="twitter:creator" content="{{ .Params.Author }}">
     <meta name="twitter:image" content="{{ .Site.Params.Avatar | absURL }}">
-    
+
     <!-- Open-Graph Data -->
     <meta property="og:locale" content="{{ .Site.Params.LanguageCode }}">
     <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
@@ -24,7 +24,7 @@
     <meta property="og:url" content="{{ .Permalink }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:image" content="{{ if $.Params.cover }}{{ $.Params.cover | absURL }}{{else}}{{ "/images/background.jpeg" | absURL }}{{end}}">
-    
+
     <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
     <meta name="author" content="{{ .Site.Params.Author }}">
@@ -47,7 +47,13 @@
     <link rel="stylesheet" href="{{ "css/tailwind.min.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/theme.css" | absURL }}">
     <link rel="stylesheet" href="{{ "css/github-gist.min.css" | absURL }}">
-    <link rel="stylesheet" href="{{ "css/ahmedash.com.css" | absURL }}">
+    <script src="https://kit.fontawesome.com/e0031daf6e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2:400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Baloo 2', cursive;
+        }
+    </style>
 </head>
 <body class="font-serif bg-gray-200 border-t-4 border-blue-500 antialiased">
     <div class="w-full p-6 md:w-2/3 md:px-0 md:mx-auto xl:w-2/5">
