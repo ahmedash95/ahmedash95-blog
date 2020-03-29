@@ -17,7 +17,7 @@
             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
                     name="b_5b3a829d29f1c3afb774e8a07_abb40ddc50" tabindex="-1" value=""></div>
             <div class="clear">
-                <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" onclick="ev.setUser(document.getElementById('mce-EMAIL').value); ev.event('subscribe',{ email: document.getElementById('mce-EMAIL').value });"
                     class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                     Subscribe
                 </button>
