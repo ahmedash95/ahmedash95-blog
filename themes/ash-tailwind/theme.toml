@@ -1,0 +1,11 @@
+name = "c"
+license = "MIT"
+description = "A minimalist journal template for Hugo using TailwindCSS."
+homepage = "https://github.com/ahmedash/ash-tailwind"
+tags = ["minimalist", "reading", "blog", "tailwindcss"]
+features = ["blog"]
+min_version = "0.1.0"
+
+[author]
+    name = "Ahmed Ashraf"
+    homepage = "https://ahmedash.com"

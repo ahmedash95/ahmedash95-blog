@@ -1,0 +1,25 @@
+div.highlight {
+    border: 1px solid #f4f4f4;
+    padding: 20px;
+}
+
+div.highlight > pre {
+    overflow: auto;
+}
+
+div.highlight > * {
+    text-align: left!important;
+    direction: ltr!important;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+}
