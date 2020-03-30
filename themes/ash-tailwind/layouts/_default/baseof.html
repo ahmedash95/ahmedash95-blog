@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="{{ .Site.Params.LanguageCode }}">
+
+<head>
+    <meta charset="utf-8">
+    {{ hugo.Generator }}
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
+    <meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+    <meta name="twitter:site" content="{{ .Site.BaseURL }}">
+    <meta name="twitter:creator" content="{{ .Params.Author }}">
+    <meta name="twitter:image" content="{{ .Site.Params.Avatar | absURL }}">
+
+    <!-- Open-Graph Data -->
+    <meta property="og:locale" content="{{ .Site.Params.LanguageCode }}">
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+    <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}">
+    <meta property="og:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta property="og:image" content="{{ if $.Params.cover }}{{ $.Params.cover | absURL }}{{else}}{{ "/images/background.jpeg" | absURL }}{{end}}">
+
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+
+    <meta name="author" content="{{ .Site.Params.Author }}">
+    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+
+    <!-- RSS -->
+    {{ with .OutputFormats.Get "RSS" }}
+    <link rel="alternate" href="{{ .RelPermalink | absURL }}" type="application/rss+xml" title="{{ $.Site.Title }}">
+    {{ end }}
+
+    <!-- Translations -->
+    {{ if .IsTranslated }}
+    {{ range .Translations }}
+    <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Site.Title }}">
+    {{ end }}
+    {{ end }}
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
+    <link rel="stylesheet" href="{{ "css/tailwind.min.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/custom.min.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/github-gist.min.css" | absURL }}">
+    <script src="https://kit.fontawesome.com/e0031daf6e.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2:400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Baloo 2', cursive;
+        }
+    </style>
+</head>
+<body class="border-gray-800 bg-gray-100 pt-8">
+    <div class="container mx-auto">
+        {{ block "top" . }}{{ end }}
+        <div>
+            <div class="md:w-1/3 w-full inline-block px-2">
+                <div class="bg-white px-8 py-12 rounded-lg mb-4" style="text-align: -webkit-center;">
+                    {{ if .Site.Params.Avatar }}
+                    <img class="block w-32 rounded-full" src="{{ .Site.Params.Avatar | absURL }}"
+                        alt="{{ .Site.Params.Author }}">
+                    {{ end }}
+                    <p class="text-2xl mt-4 text-gray-800 font-semibold">{{ .Site.Title }}</p>
+                    <p class="mt-2 text-gray-700">{{ .Site.Params.tagline }}</p>
+                    <div class="mt-8 text-gray-600">
+                        <i class="mx-2 fab fa-facebook-square fa-lg"></i>
+                        <i class="mx-2 fab fa-twitter fa-lg"></i>
+                        <i class="mx-2 fab fa-linkedin fa-lg"></i>
+                        <i class="mx-2 fab fa-youtube fa-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Begin Mailchimp Signup Form -->
+                <div id="mc_embed_signup" class="bg-white p-8 rounded-lg mb-4" style="text-align: -webkit-center;">
+                    <form action="https://ahmedash.us4.list-manage.com/subscribe/post?u=5b3a829d29f1c3afb774e8a07&amp;id=abb40ddc50"
+                        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                        target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+                            <label for="mce-EMAIL" class="mt-2 text-gray-700">Stay up to date with all things Go, PHP, JavaScript
+                                and Databases</label>
+                            <input type="email" value="" name="EMAIL"
+                                class="email bg-white w-full bg-gray-200 mt-4 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+                                id="mce-EMAIL" placeholder="email address" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                    name="b_5b3a829d29f1c3afb774e8a07_abb40ddc50" tabindex="-1" value=""></div>
+                            <div class="clear">
+                                <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                                    class="bg-gray-800 hover:bg-gray-900 text-white mt-4 font-semibold py-2 px-4 rounded-lg w-full h-12">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="md:w-2/3 w-full inline-block px-2 float-right">
+                <!-- The content block. -->
+                {{ block "content" . }}{{ end }}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <footer class="w-full text-center pt-3 mb-3">
+        <p>
+            &copy; {{ now.Format "2006"}}
+        </p>
+    </footer>
+    {{ template "_internal/google_analytics.html" . }}
+</body>
+</html>

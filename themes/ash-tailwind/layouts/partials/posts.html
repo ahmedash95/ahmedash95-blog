@@ -1,0 +1,27 @@
+<div>
+    {{ range .Pages -}}
+    {{ if .Params.affiliatelink }}
+        <a target="_blank" href="{{ .Params.affiliatelink }}">
+    {{ else }}
+        <a href="{{ .RelPermalink }}">
+    {{ end }}
+        <div class="bg-white p-8 rounded-lg mb-4">
+            <p class="text-2xl inline">{{ .Title }}</p>
+            {{ if eq .Params.lang "AR" }}
+            <span class="bg-green-200 text-green-800 px-1 rounded-lg inline">AR</span>
+            {{ else }}
+            <span class="bg-purple-200 text-purple-800 px-1 rounded-lg inline">EN</span>
+            {{ end }}
+            <span class="text-blue-800 float-none block md:float-right md:inline-block" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</span>
+            <p
+                class="text-gray-700 mt-4 {{ if eq .Params.lang "AR" }} text-right {{end}}"
+                {{ if eq .Params.lang "AR" }}
+                    style="direction:rtl"
+                {{end}}
+            >
+                {{ .Summary }}
+            </p>
+        </div>
+    </a>
+    {{- end }}
+</div>
