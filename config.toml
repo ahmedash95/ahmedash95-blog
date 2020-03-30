@@ -63,3 +63,6 @@ publishDir = "public"
     facebook = "https://www.facebook.com/ahmedash95"
     github   = "https://www.github.com/ahmedash95"
     #dribble  = ""
+
+[markup.goldmark.renderer]
+unsafe= true
